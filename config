@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code Regular 10
+font pango:Fira Code Medium 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -107,16 +107,19 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:Email"
+set $ws2 "2:Msges"
+set $ws3 "3:Zilla"
+set $ws4 "4:Editr"
+set $ws5 "5:VncCo"
+set $ws6 "6:Remot"
+set $ws7 "7:Chrom"
+set $ws8 "8:Codes"
+set $ws9 "9:Brows"
+set $ws10 "10:Terms"
+
+# Enable workspace Back and forth
+workspace_auto_back_and_forth yes
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -192,10 +195,13 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		font pango:Fira Code Regular 12
-		tray_output primary
+		font pango:Fira Code Medium 12
+		tray_output none
+		# strip_workspace_numbers yes
 		status_command $HOME/.config/conky/conky-i3bar
-        #status_command i3status
+        # status_command i3status -c ~/.config/i3status/i3status.conf
+        # status_command i3blocks -c ~/.config/i3status/i3blocks.conf
+        # status_command /home/tanmay/.config/i3status/my_i3status.sh
 		colors {
 		background $bg-color
 	   	separator #757575
@@ -206,9 +212,16 @@ bar {
 	}
 }
 
-exec --no-startup-id "~/.config/.fehbg"
+# Set Wall
+exec --no-startup-id "~/.config/i3/i3_startup"
+# Start Compton
 exec --no-startup-id "picom &"
-bindsym	$mod+ctrl+l exec --no-startup-id "i3lock"
+# Lock screen.
+bindsym	$mod+ctrl+l exec --no-startup-id "i3lock -c 000000"
+# Setting the Monitor not go to sleep.
+exec xset s 0 0 -dpms
+# Start Snap Service:
+exec "sshpass -p novell sudo systemctl start snapd.apparmor.service"
 
 # i3 Gaps.
 for_window [class="^.*"] border pixel 2
@@ -220,3 +233,17 @@ exec --no-startup-id "pavucontrol &"
 for_window 		[class$pavu] 	move scratchpad 
 for_window 		[class$pavu] 	floating enable
 bindsym $mod+p 	[class$pavu] 	scratchpad show
+
+set $staf 	="qweunb7826890"
+exec --no-startup-id i3-sensible-terminal -T qweunb7826890
+for_window 		[title$staf] 	move scratchpad 
+for_window 		[title$staf] 	floating enable
+for_window 		[title$staf] 	resize set 1200 800
+bindsym $mod+u 	[title$staf] 	scratchpad show; [title$staf] move position center
+
+set $extr 	="v1624u8yt"
+exec --no-startup-id i3-sensible-terminal -T v1624u8yt
+for_window 		[title$extr] 	move scratchpad 
+for_window		[title$extr] 	floating enable
+for_window 		[title$extr] 	resize set 1600	900
+bindsym $mod+i 	[title$extr] 	scratchpad show; [title$extr] move position center
