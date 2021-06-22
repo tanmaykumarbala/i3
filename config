@@ -221,7 +221,7 @@ bindsym	$mod+ctrl+l exec --no-startup-id "i3lock -c 000000"
 # Setting the Monitor not go to sleep.
 exec xset s 0 0 -dpms
 # Start Snap Service:
-exec "sshpass -p novell sudo systemctl start snapd.apparmor.service"
+# exec "sshpass -p novell sudo systemctl start snapd.apparmor.service"
 
 # i3 Gaps.
 for_window [class="^.*"] border pixel 2

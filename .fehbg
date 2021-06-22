@@ -1,3 +1,3 @@
 #!/bin/bash
 
-feh --bg-fill --no-fehbg ~/Pictures/wall19.jpg
+feh --bg-fill --no-fehbg "$HOME/Pictures/desktop.jpg"
