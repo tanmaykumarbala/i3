@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'chiel92/vim-autoformat'
 	Plug 'tpope/vim-surround'
 	Plug 'kien/ctrlp.vim'
+	Plug 'valloric/youcompleteme'
 call plug#end()
 
 """ Transparent Background:

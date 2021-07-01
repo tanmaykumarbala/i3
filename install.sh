@@ -5,20 +5,14 @@ os_Command="cat /etc/os-release"
 i3folder="$HOME/.config/i3"
 pictureFolder="$HOME/Pictures"
 configFolder="$HOME/.config"
-command="install sshpass bluez bluez-tools conky feh terminator git vim neofetch picom"
-copy="cp -rf .bash* conky .fehbg .startup terminator $configFolder/"
-copyVim="cp -rf .vimrc $HOME/.vimrc"
-copy1="cp -rf ./desktop.jpg $pictureFolder/desktop.jpg"
-copy2="cp -rf config btConnect.sh i3_startup $i3folder/"
+command="install cmake python-devel python3-devel sshpass bluez bluez-tools conky feh terminator git vim neofetch picom -t pattern devel_basis"
+copy="cp -rf .bash* conky .fehbg .startup terminator $configFolder/; cp -rf .vimrc $HOME/.vimrc; cp -rf ./desktop.jpg $pictureFolder/desktop.jpg; cp -rf config btConnect.sh i3_startup $i3folder/"
 execWall="$HOME/.config/.fehbg"
 
 check_Folder_and_Install(){
 if [ -d "$i3folder" ] && [ -d "$pictureFolder" ]; then
 		echo "Folder exist. Coping config files..."
-		$($copy)
-		$($copy1)
-		$($copy2)
-		$($copyVim)
+		eval $copy
 		eval $execWall
 else
 		echo "Folder does not exist. Creating folders..."

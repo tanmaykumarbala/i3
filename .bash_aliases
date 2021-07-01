@@ -19,3 +19,4 @@ alias jenkins="sshpass -p novell ssh -o StrictHostKeyChecking=no tanmay@164.99.1
 alias vpnConnect="sshpass -p novell sudo openconnect --protocol=nc --user=corpdom\\btanmay https://apj-remoteaccess.microfocus.net"
 alias hyperV="sshpass -p novell ssh root@164.99.117.81 -X"
 alias oldJenkins="sshpass -p windows123 ssh -o StrictHostKeyChecking=no jenkins@164.99.118.23"
+alias i3git="cd /home/tanmay/Documents/i3"
